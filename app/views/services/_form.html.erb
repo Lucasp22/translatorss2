@@ -1,0 +1,16 @@
+<div class="coutainer">
+
+  <%= form_for(@box, :html => { :multipart => true }) do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title, :class => "form" %>
+
+  <%= f.label :image %>
+  <%= f.file_fildn :image %>
+
+  <%= f.label :user_id %>
+          <%= f.select :user_id, User.pluck(:email, :id), :include_blank => true %>
+
+  <%= f.submit "Update", :class => "btn btn-dark"%>
+      <% end %>
+
+</div>

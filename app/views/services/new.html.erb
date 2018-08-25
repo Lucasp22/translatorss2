@@ -1,0 +1,16 @@
+<h1>Services#new</h1>
+<p>Find me in app/views/services/new.html.erb</p>
+<div class="container">
+
+  <h1>New Service</h1>
+
+  <%= form_for(@service, :html => { :multipart => true }) do |f| %>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => "form-control" %>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %><br>
+    <br>  <%= f.submit "Create Service", :class => "btn btn-dark"   %>
+    <% end %>
+
+
+</div>
