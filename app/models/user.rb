@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_secure_password
 validates :email, :presence => true, :uniqueness => true
 has_many :services
+has_and_belongs_to_many :orders
+
 end

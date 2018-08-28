@@ -1,8 +1,9 @@
 class ServicesController < ApplicationController
-  before_action :check_for_login, :only => [:new, :create]
+  before_action :check_for_translator, :only => [:new, :create]
 
   def index
     @services = @current_user.services
+    @users = User.all
   end
 
   def show
@@ -16,7 +17,7 @@ class ServicesController < ApplicationController
   def create
     service = Service.create service_params
     service.user_id = @current_user.id
-    service.save
+    service.save!
     redirect_to service
   end
 
@@ -29,7 +30,7 @@ class ServicesController < ApplicationController
 
   private
     def service_params
-      params.require(:service).permit(:title, :user_id)
+      params.require(:service).permit(:title, :user_id, :price, :time_frame_id, :from_language_id, :to_language_id, :document_id)
     end
 
 end

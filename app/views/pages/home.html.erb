@@ -2,6 +2,18 @@
 <div class="container">
   <div class="card-body-fluid  mb-3">
     <h1 class="display-4">Translatorss</h1>
+    <div>
+      <% @users.where(:translator => true).each do |s|  %>
+          <%= s.email %>
+      <% end %>
+
+
+
+
+
+
+    </div>
+
 
   </div>
 

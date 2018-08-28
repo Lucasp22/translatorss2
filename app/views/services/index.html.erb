@@ -1,11 +1,19 @@
-<h1>Services#index</h1>
+<h1>See the Translatos and Create a order</h1>
 <p>Find me in app/views/services/index.html.erb</p>
 <div class="container">
+  <li>  User: <%= @current_user.email %></li>
+        <% @users.each do |s|  %>
+          <% if s.translator? %>
+            <%= s.email %>
+          <% end %>
+        <% end %>
+
 
     <ul>
     <% @services.sort.each do |service| %>
     <ul class="list-group list-group-flush" style="width: 20rem;">
-      <li>  <%= link_to service.title, service, :class => "list-group-item list-group-item-light" %></li>
+      <li>  <%= link_to "#{service.document}", document_path(service.document_id) %></li>
+
     </ul>
     <% end %>
     </ul>

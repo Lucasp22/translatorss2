@@ -1,0 +1,13 @@
+<div class="coutainer">
+
+  <%= form_for(@order, :html => { :multipart => true }) do |f| %>
+  <div class="form-group">
+    <h4>Document Category</h4>
+  <%= f.label :document_id %>
+  <%= f.select :document_id, Document.pluck(:category, :id), :include_blank => true, :class => "dropdown-menu" %></div>
+
+
+  <%= f.submit "Update", :class => "btn btn-dark"%>
+      <% end %>
+
+</div>

@@ -19,6 +19,13 @@
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation, :class => "form-control" %>
       <br>
+
+      <%= f.label :translator, "Yes I am a translator"%>
+      <%= f.radio_button :translator, true %>
+      <br>
+      <%= f.label :translator, "No I am not a translator"%>
+      <%= f.radio_button :translator, false %><br>
+
       <%= f.submit "Sign up!", :class => "btn btn-dark"%>
     <% end %>
   </div>

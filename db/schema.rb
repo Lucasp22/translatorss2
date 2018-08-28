@@ -10,15 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_25_094114) do
+ActiveRecord::Schema.define(version: 2018_08_27_054254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "documents", force: :cascade do |t|
+    t.text "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "from_languages", force: :cascade do |t|
+    t.text "language_from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "service_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.text "title"
     t.text "image"
+    t.decimal "price"
     t.integer "user_id"
+    t.integer "time_frame_id"
+    t.integer "from_language_id"
+    t.integer "to_language_id"
+    t.integer "document_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "time_frames", force: :cascade do |t|
+    t.integer "urgercy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "to_languages", force: :cascade do |t|
+    t.text "language_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +70,8 @@ ActiveRecord::Schema.define(version: 2018_08_25_094114) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "adm"
+    t.boolean "translator"
   end
 
 end
