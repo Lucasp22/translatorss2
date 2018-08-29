@@ -3,10 +3,6 @@
   <div class="card-body-fluid  mb-3">
     <h1 class="display-4">Translatorss</h1>
 
-    <div><% @users.where(:translator => true).each do |s|  %>
-          <%= s.email %>
-      <% end %></div>
-
       <%= form_tag search_translator_path do %>
         <%= label_tag "Select your translator: "%>
         <%= select_tag "from_languages", options_for_select([["select a language from", -1]] + @from_languages.pluck(:language_from, :id)) %>
@@ -19,7 +15,6 @@
     <div class="services">
     <% @user_matches.each do |user| %>
       <div>
-        <%# do any html for a single user here %>
         <%= link_to user.email, user_path(user) %>
       </div>
     <% end %>
