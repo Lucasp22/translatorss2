@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  get 'orders/index'
-  get 'orders/show'
-  get 'orders/new'
-  get 'orders/edit'
+
   root :to => 'pages#home'
       resources :users
+      get '/users/result' => 'users#result'
       resources :services
       resources :from_languages
       resources :to_languages
       resources :documents
       resources :orders
 
+
+      post "/search" => "pages#search", as: :search_translator
 
 
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     post '/login' => 'session#create' # perform a login
     delete '/login' => 'session#destroy' # perform a log out
 
-    #service routes
+    # #service routes
     get '/service' => 'service#new'
 
 end

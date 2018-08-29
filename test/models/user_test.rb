@@ -7,6 +7,8 @@
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  adm             :boolean
+#  translator      :boolean
 #
 
 require 'test_helper'

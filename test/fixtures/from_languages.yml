@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: from_languages
+#
+#  id            :bigint(8)        not null, primary key
+#  language_from :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

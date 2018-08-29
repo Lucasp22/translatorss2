@@ -1,21 +1,20 @@
-<h1>See the Translatos and Create a order</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+
 <div class="container">
-  <li>  User: <%= @current_user.email %></li>
-        <% @users.each do |s|  %>
-          <% if s.translator? %>
-            <%= s.email %>
-          <% end %>
-        <% end %>
+  <h1>Your services available</h1>
 
+  <% @services.each do |service| %>
+  <li>Document Id: <%= service.document_id %></li>
+  <li>Language to: <%= service.to_language.language_to %></li>
+  <li>Language to: <%= service.from_language.language_from %></li>
+  <li>Document Category: <%= service.document.category %></li>
+  <li>Service Price: <%= service.price %></li>
 
-    <ul>
-    <% @services.sort.each do |service| %>
-    <ul class="list-group list-group-flush" style="width: 20rem;">
-      <li>  <%= link_to "#{service.document}", document_path(service.document_id) %></li>
-
-    </ul>
+    <% if service.time_frame.present? %>
+      <li>Time Frame: <%= service.time_frame.urgercy %></li>
     <% end %>
-    </ul>
+
+  <% end %>
+
+
 
   </div>

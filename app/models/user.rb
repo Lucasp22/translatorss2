@@ -7,6 +7,8 @@
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  adm             :boolean
+#  translator      :boolean
 #
 
 class User < ApplicationRecord
@@ -15,4 +17,6 @@ validates :email, :presence => true, :uniqueness => true
 has_many :services
 has_and_belongs_to_many :orders
 
+include PgSearch
+pg_search_scope :search_for, against: %i(email language_from)
 end

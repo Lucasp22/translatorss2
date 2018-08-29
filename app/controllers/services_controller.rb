@@ -1,13 +1,15 @@
 class ServicesController < ApplicationController
-  before_action :check_for_translator, :only => [:new, :create]
+  before_action :check_for_translator, :only => [:new, :create, :show]
 
   def index
-    @services = @current_user.services
-    @users = User.all
+
+    @services = Service.all
+    # raise "hell"
   end
 
   def show
     @service = Service.find params[:id]
+
   end
 
   def new
