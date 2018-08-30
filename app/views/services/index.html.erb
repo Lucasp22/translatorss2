@@ -1,20 +1,23 @@
 
 <div class="container">
-  <h1>Your services available</h1>
-
-  <% @services.each do |service| %>
-  <li>Document Id: <%= service.document_id %></li>
-  <li>Language to: <%= service.to_language.language_to %></li>
-  <li>Language to: <%= service.from_language.language_from %></li>
-  <li>Document Category: <%= service.document.category %></li>
-  <li>Service Price: <%= service.price %></li>
-
-    <% if service.time_frame.present? %>
-      <li>Time Frame: <%= service.time_frame.urgercy %></li>
-    <% end %>
-
-  <% end %>
 
 
+  <h1 class="display-6">Your services aveilable</h1>
 
+  <div class="card-body bg-light mb-3" style="width: 30rem;">
+
+    <ul><% @services.each do |service| %>
+    <li>Document Id: <%= service.document_id %></li>
+      <li>Language to: <%= service.to_language.language_to %></li>
+      <li>Language to: <%= service.from_language.language_from %></li>
+      <li>Document Category: <%= service.document.category %></li>
+      <li>Service Price: <%= service.price %></li>
+          <% if service.time_frame.present? %>
+          <li>Time Frame: <%= service.time_frame.urgercy %></li>
+          <% end %>
+      </ul>
+      <br />
+      <% end %>
+    </ul>
   </div>
+</div>

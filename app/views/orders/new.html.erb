@@ -1,2 +1,29 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<div class="container">
+
+  <h1>Create your order</h1>
+
+  <%= form_for(@order, :html => { :multipart => true }) do |f| %>
+
+        <div class="form-group">
+            <h4>Translator ID</h4>
+            <%= f.label :user_id %>
+            <%= f.select :user_id, Order.pluck(:user_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
+                <br>
+                <div class="form-group">
+                    <h4>Serive ID</h4>
+                    <%= f.label :service_id %>
+                    <%= f.select :service_id, Order.pluck(:service_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
+                        <br>
+                        <%= f.label :comment %><br>
+                        <%= f.text_field :comment, :class => "form-control" %>
+                        <br>
+
+            <%= f.submit "Create Order", :class => "btn btn-dark"%>
+            <br>
+            <% end %>
+            </div>
+        </div>
+
+
+
+</div>

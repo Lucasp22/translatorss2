@@ -1,1 +1,51 @@
-<h1>User comming SOON :_)</h1>
+
+
+<div class="container">
+  <h1>User Services SOON :_)</h1>
+<div class="card-body bg-light mb-3" style="width: 30rem;">
+<ul>
+<div>
+
+        <% @service.each do |service| %>
+        <ul class="list-group list-group-flush" style="width: 20rem;">
+
+    <% if service.time_frame.present? %>
+      <li>Time Frame: <%= service.time_frame.urgercy %></li>
+    <% end %>
+
+
+
+    <% if service.document.present? %>
+      <li>Document Category: <%= service.document.category %></li>
+    <% end %>
+
+    <% if service.from_language.present? %>
+      <li>Language from: <%= service.from_language.language_from %></li>
+    <% end %>
+
+    <% if service.to_language.present? %>
+      <li>Language to: <%= service.to_language.language_to %></li>
+      <% end %>
+
+
+    <% if service.price.present? %>
+      <li>Price: <%= number_to_currency service.price %></li>
+    <% end %>
+
+
+  </ul>
+
+
+
+  <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Order</button>
+
+  <br />
+  <% end %>
+
+</div>
+
+
+
+
+
+</div>

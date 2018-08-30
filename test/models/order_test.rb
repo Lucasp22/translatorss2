@@ -4,6 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  user_id    :integer
+#  client_id  :integer
 #  service_id :integer
 #  comment    :text
 #  created_at :datetime         not null

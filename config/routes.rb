@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :to_languages
       resources :documents
       resources :orders
+      # get '/order' => 'orders#new'
+
 
 
       post "/search" => "pages#search", as: :search_translator

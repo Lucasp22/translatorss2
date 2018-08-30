@@ -1,0 +1,4 @@
+<h1>All Clients: <%= number_to_human Client.count %></h1>
+<% @clients.each do |client| %>
+  <p><%= client.email %></p>
+<% end %>

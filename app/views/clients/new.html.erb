@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="display-6">Sign Up</h1>
+  <div class="card-body bg-light mb-3" style="width: 30rem;">
+    <% if @user.errors.any? %>
+      <ol>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
+    <% end %>
+    <%= form_for @user, :class => "form" do |f| %>
+
+      <%= f.label :email %><br>
+      <%= f.email_field :email, :class => "form-control" %>
+
+      <%= f.label :password %><br>
+      <%= f.password_field :password, :class => "form-control" %>
+
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, :class => "form-control" %>
+      <br>
+
+      <%= f.label :translator, "Yes I am a translator"%>
+      <%= f.radio_button :translator, true %>
+      <br>
+      <%= f.label :translator, "No I am not a translator"%>
+      <%= f.radio_button :translator, false %><br>
+
+      <%= f.submit "Sign up!", :class => "btn btn-dark"%>
+    <% end %>
+  </div>
+</div>

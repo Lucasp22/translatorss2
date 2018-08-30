@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
 
   def index
 
-    @services = Service.all
+    @services = @current_user.services
     # raise "hell"
   end
 

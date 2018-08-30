@@ -6,7 +6,11 @@ class SessionController < ApplicationController
     user = User.find_by :email => params[:email]
     if user.present? &&           user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      if session[:last_page].present?
+        redirect_to session[:last_page]
+      else
+        redirect_to root_path
+      end
     else
       flash[:error] = "Invalid email or password"
       redirect_to login_path

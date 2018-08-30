@@ -4,7 +4,7 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-  
+
     <title>Translatorss</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,10 +32,15 @@
 
               <li class="nav-item">  <%= link_to 'See service', services_path, :class => "nav-link", :method => :get %>
 
+                <li class="nav-item">  <%= link_to 'New Order', new_order_path, :class => "nav-link", :method => :get %>
+
+                  <li class="nav-item">  <%= link_to 'See Orders', orders_path, :class => "nav-link", :method => :get %>
+
               </li>
             <% else %>
               <li class="nav-item">
                 <%= link_to 'Login', login_path, :class => "nav-link", data: {}, :method => :get %></li>
+
               <li class="nav-item">
                 <%= link_to 'Sign up', new_user_path, :class => "nav-link", data: {}, :method => :get %></li>
             <% end %>

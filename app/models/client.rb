@@ -1,21 +1,17 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: clients
 #
 #  id              :bigint(8)        not null, primary key
 #  email           :text
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  adm             :boolean
-#  translator      :boolean
 #
 
-class User < ApplicationRecord
+class Client < ApplicationRecord
   has_secure_password
 validates :email, :presence => true, :uniqueness => true
-has_many :services
-# has_and_belongs_to_many :orders
-has_many :orders
 
+    has_many :orders
 end

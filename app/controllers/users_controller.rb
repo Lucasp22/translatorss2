@@ -3,11 +3,12 @@ class UsersController < ApplicationController
 
     def index
       @users = User.all
-
     end
 
     def show
       @user = User.find params[:id]
+      @service = @user.services
+      session[:last_page] = request.env['PATH_INFO']
     end
 
 
@@ -15,22 +16,32 @@ class UsersController < ApplicationController
       @user = User.new
     end
 
-
-
     def create
-      @user = User.new user_params
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to root_path
+      if params[:user][:translator] == "true"
+         @user = User.new user_params
+          if @user.save
+            session[:user_id] = @user.id
+            redirect_to root_path
+          else
+            render :new
+          end
       else
-        render :new
+        @client = Client.new client_params
+        if @client.save
+          session[:user_id] = @client.id
+          redirect_to root_path
+        else
+          render :new
+        end
       end
     end
+
 
     private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :translator)
-
-
+    end
+    def client_params
+      params.require(:user).permit(:email, :password, :password_confirmation)
     end
 end
