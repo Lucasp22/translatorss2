@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       resources :orders
       # get '/order' => 'orders#new'
 
+      patch "/orders" => "orders#create"
 
-
-      post "/search" => "pages#search", as: :search_translator
+      post "/search" => "pages#search", as: :search_translator #dont delete
 
 
 

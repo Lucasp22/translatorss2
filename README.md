@@ -1,24 +1,33 @@
-# README
+# Translatorss
+## Introduction
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Translatorss is search application with translator having services and client having orders.
 
-Things you may want to cover:
+## Technical overview
 
-* Ruby version
+- Ruby on Rails - Back end
+- PostgreSQL
+- BOOTSTRAP - Front end
+- Heroku - SERVER
 
-* System dependencies
 
-* Configuration
+Help us to improve it, share and enjoy :) Please create a Github issue if there is something wrong or to be improved. Pull request are also welcome and they can be created to the develop branch.
 
-* Database creation
+### Future Feature
 
-* Database initialization
+- Finish the Stripe Api
+- Finish Cloudinary
+- Finish SendGrid
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+### Participants in the project
+
+
+- Lucas Padua
+https://github.com/Lucasp22
+
+
+### License
+- Translatorss PTY LTD Copyright © 2018

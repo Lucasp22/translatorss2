@@ -7,12 +7,12 @@
         <div class="form-group">
             <h4>Translator ID</h4>
             <%= f.label :user_id %>
-            <%= f.select :user_id, Order.pluck(:user_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
+            <%= f.select :user_id, User.pluck(:user_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
                 <br>
                 <div class="form-group">
                     <h4>Serive ID</h4>
                     <%= f.label :service_id %>
-                    <%= f.select :service_id, Order.pluck(:service_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
+                    <%= f.select :service_id, Service.pluck(:service_id, :id), :include_blank => true, :class => "dropdown-menu" %></div>
                         <br>
                         <%= f.label :comment %><br>
                         <%= f.text_field :comment, :class => "form-control" %>

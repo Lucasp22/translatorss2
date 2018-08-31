@@ -1,48 +1,62 @@
 
 
 <div class="container">
-  <h1>User Services SOON :_)</h1>
+  <h1>User Services :_)</h1>
 <div class="card-body bg-light mb-3" style="width: 30rem;">
 <ul>
 <div>
 
-        <% @service.each do |service| %>
+      <% @service.each do |service| %>
+
+            <% if service.time_frame.present? %>
+                  <li>Time Frame: <%= service.time_frame.urgercy %></li>
+            <% end %>
+
+                <% if service.document.present? %>
+                  <li>Document Category: <%= service.document.category %></li>
+                <% end %>
+
+            <% if service.from_language.present? %>
+                  <li>Language from: <%= service.from_language.language_from %></li>
+                <% end %>
+
+                <% if service.to_language.present? %>
+                  <li>Language to: <%= service.to_language.language_to %></li>
+              <% end %>
+
+
+                <% if service.price.present? %>
+                  <li>Price: <%= number_to_currency service.price %></li>
+            <% end %>
+
+
+
+          <%= form_for(service, :html => { :multipart => true },:url => url_for(:controller => 'orders', :action => 'create')) do |f| %>
+
+            <%= f.hidden_field :from_language_id, {:value => service.from_language.id} %>
+
+            <%= f.hidden_field :user_id, {:value =>  service.user.id }%>
+
+
+            <%= f.hidden_field :to_language_id, {:value =>  service.to_language.id }%>
+
+
+
+
+            <%= f.hidden_field :email, {:value => service.user.email} %>
+
+
+
+            <%= f.submit "Create Order", :class => "btn btn-dark" %>
+          <% end %>
         <ul class="list-group list-group-flush" style="width: 20rem;">
-
-    <% if service.time_frame.present? %>
-      <li>Time Frame: <%= service.time_frame.urgercy %></li>
-    <% end %>
+        </ul>
 
 
-
-    <% if service.document.present? %>
-      <li>Document Category: <%= service.document.category %></li>
-    <% end %>
-
-    <% if service.from_language.present? %>
-      <li>Language from: <%= service.from_language.language_from %></li>
-    <% end %>
-
-    <% if service.to_language.present? %>
-      <li>Language to: <%= service.to_language.language_to %></li>
+      <br />
       <% end %>
 
-
-    <% if service.price.present? %>
-      <li>Price: <%= number_to_currency service.price %></li>
-    <% end %>
-
-
-  </ul>
-
-
-
-  <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Order</button>
-
-  <br />
-  <% end %>
-
-</div>
+    </div>
 
 
 

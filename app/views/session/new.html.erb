@@ -2,7 +2,7 @@
     <h1 class="display-6">Log In</h1>
   <div class="card-body bg-light mb-3" style="width: 30rem;">
     <h2><%= flash[:error] %></h2>
-    <%= form_tag login_path,:class => "form" do %>
+    <%= form_for login_path,:class => "form" do |form| %>
       <br>
       <%=  label_tag :email%>
       <%= email_field_tag :email, nil, :class => "form-control" %>
@@ -11,7 +11,11 @@
       <%= password_field_tag :password, nil, :class => "form-control" %>
       <br>
 
-    
+      <%= form.label :translator, "Yes I am a translator"%>
+      <%= form.radio_button :translator, true %>
+      <br>
+      <%= form.label :translator, "No I am not a translator"%>
+      <%= form.radio_button :translator, false %><br>
 
 
       <%= submit_tag "Log in", :class => "btn btn-dark" %>

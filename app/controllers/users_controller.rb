@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @user = User.find params[:id]
       @service = @user.services
       session[:last_page] = request.env['PATH_INFO']
+
     end
 
 
